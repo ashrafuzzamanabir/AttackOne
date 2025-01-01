@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public GameObject deadimage;
 
-
+    //deathcount
     public int deathCount = 0;
     private bool isGameFinished = false;
 
