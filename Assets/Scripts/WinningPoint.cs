@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+
 public class WinningPoint : MonoBehaviour
 {
     [SerializeField] private LayerMask playerLayer; // Player layer to check
@@ -9,10 +12,14 @@ public class WinningPoint : MonoBehaviour
     public GameManager gameManager;
     public Animator animator;
 
-    [SerializeField] public GameObject winObject;
-
+    [SerializeField] public GameObject winObject; // UI object for winning notification
+    [SerializeField] private GameObject creditsCanvas; // Canvas for ending credits
+    [SerializeField] private Text creditsText; // Text component to display credits
+    [TextArea(5, 10)] public string[] creditsLines; // Array of credit lines
+    [SerializeField] private float lineDisplayDuration = 2f; // Time each line is displayed
 
     audioManager audioManager;
+
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<audioManager>();
@@ -25,6 +32,16 @@ public class WinningPoint : MonoBehaviour
         {
             Debug.LogError("GameManager not found in the scene!");
         }
+
+        // Ensure the credits Canvas is disabled at the start
+        if (creditsCanvas != null)
+        {
+            creditsCanvas.SetActive(false);
+        }
+        else
+        {
+            Debug.LogWarning("Credits Canvas not assigned in the Inspector.");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -33,7 +50,6 @@ public class WinningPoint : MonoBehaviour
         if (((1 << collision.gameObject.layer) & playerLayer) != 0)
         {
             StartCoroutine(HandleWinSequence(collision));
-
         }
     }
 
@@ -52,10 +68,27 @@ public class WinningPoint : MonoBehaviour
         winObject.SetActive(true);
         Debug.Log($"Collision with: {collision.gameObject.name}");
 
-        // Wait for 4 seconds (or adjust to match the animation/sound duration)
+        // Wait for 3 seconds for win sequence to play
         yield return new WaitForSeconds(3f);
 
-        // Notify the GameManager to handle the scene transition or end game
+        winObject.SetActive(false); // Hide win message
+
+        // Show and animate the credits Canvas
+        if (creditsCanvas != null)
+        {
+            creditsCanvas.SetActive(true);
+            Debug.Log("Displaying line-by-line credits.");
+
+            yield return StartCoroutine(DisplayCreditsLineByLine());
+
+            creditsCanvas.SetActive(false); // Hide the Canvas after credits are done
+        }
+        else
+        {
+            Debug.LogWarning("Credits Canvas is missing.");
+        }
+
+        // Notify the GameManager to handle the scene transition
         if (gameManager != null)
         {
             gameManager.PlayerWon();
@@ -65,7 +98,17 @@ public class WinningPoint : MonoBehaviour
         {
             Debug.LogError("GameManager reference is missing!");
         }
-        winObject.SetActive(false);
+    }
 
+    private IEnumerator DisplayCreditsLineByLine()
+    {
+        foreach (string line in creditsLines)
+        {
+            creditsText.text = line; // Display the current line
+            yield return new WaitForSeconds(lineDisplayDuration); // Wait before showing the next line
+        }
+
+        // Clear the credits text after all lines are shown
+        creditsText.text = "";
     }
 }
