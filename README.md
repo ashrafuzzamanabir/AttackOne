@@ -1,7 +1,7 @@
 # Hopper Quest
 
 ## Overview
-"Hopper Quest" is a 2D platformer game developed as part of the "Unity Essentials: One Month to Game Development Proficiency" online training program at Nagorik Technologies Ltd. This workshop, conducted in December 2024 - January 5th 2025 , was an intensive introduction to game development using Unity, C#, and Visual Studio. Through this program, participants gained hands-on experience with game logic, mechanics, and essential Unity components, culminating in the creation of this project.
+"Hopper Quest" is a 2D platformer game developed as part of the "Unity Essentials: One Month to Game Development Proficiency" online training program at Nagorik Technologies Ltd. This workshop, conducted in December 2024 - January 5th, 2025, was an intensive introduction to game development using Unity, C#, and Visual Studio. Through this program, participants gained hands-on experience with game logic, mechanics, and essential Unity components, culminating in the creation of this project.
 
 ## Story
 In "Hopper Quest," you play as Hopper, a courageous adventurer on a mission, Hopper must navigate treacherous platforms, avoid traps, and collect health. Along the way, Hopper encounters helpful instructions, hidden challenges, and a final stage to restore peace to the land.
@@ -10,11 +10,11 @@ In "Hopper Quest," you play as Hopper, a courageous adventurer on a mission, Hop
 ### Core Gameplay
 - **Platforming:** Players control Hopper as they jump, run, and navigate through increasingly challenging levels. Precision timing and quick reflexes are key to overcoming obstacles.
 - **Collectibles:** Ancient hearts are scattered throughout the game. It heals the player
-- **Dialogue and Instructions:** Interactive objects provide players with helpful tips and progress the narrative through line-by-line text displays.
+- **Dialogue and Instructions:** Interactive objects provide players with helpful tips and help them progress the narrative through line-by-line text displays.
 
 ### Key Features
-- **Jump Mechanics:** A responsive jump system allows players to hop across platforms with fluid motion.
-- **Collision Interaction:** Objects like heal, obstacles, and leaser interact dynamically with the player, triggering animations, sound effects, and gameplay events.
+- **Jump Mechanics:** A responsive jump system allows players to hop freely across platforms.
+- **Collision Interaction:** Objects like to heal, obstacles and leasers interact dynamically with the player, triggering animations, sound effects, and gameplay events.
 - **Win Condition:** Reaching the final goal triggers a celebration sequence, including credits that scroll upward line-by-line to showcase the development team and contributors.
 
 ## Technologies Used
@@ -38,7 +38,8 @@ Through this project, participants became proficient in:
 
 ## Credits
 "Hopper Quest" was developed as a project during the Unity Essentials workshop, guided by mentors at Nagorik Technologies Ltd. Special thanks to:
-- Workshop Facilitators
+- Workshop Facilitator's
+- Mentor(Prithul Biswas Dip)
 - Nagorik Technologies Ltd.
 
 ### Developer’s Note
