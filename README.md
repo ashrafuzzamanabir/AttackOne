@@ -31,7 +31,7 @@ Through this project, participants became proficient in:
 - Managing game flow and transitions to deliver a polished experience.
 
 ## How to Play
-1. **Objective:** Guide Hopper to the end of each level by collecting coins and avoiding hazards.
+1. **Objective:** Guide Hopper to the end of each level by collecting health and avoiding hazards.
 2. **Controls:** Use the keyboard or controller to move and jump.
 3. **Progress:** Follow the on-screen instructions and uncover the mystery to reach the winning point.
 4. **Winning:** Complete all levels to view the credits and finish the game.
